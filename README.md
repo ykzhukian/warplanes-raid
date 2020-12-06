@@ -1,13 +1,18 @@
-# warpanes-raid
+# Warplanes Raid
+
+### Milestones
+- [ ] Vue3.0 + Pixi.js gaming module （this repo）
+- [ ] Nest.js server
+- [ ] Websocket live competition implement
 
 ## Project setup
 ```
-yarn install
+yarn
 ```
 
 ### Compiles and hot-reloads for development
 ```
-yarn serve
+yarn start
 ```
 
 ### Compiles and minifies for production
@@ -25,5 +30,3 @@ yarn test:unit
 yarn lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
