@@ -2,7 +2,7 @@
 
 ### Milestones
 - [ ] Vue3.0 + Pixi.js gaming module （this repo）
-- [ ] Nest.js server
+- [ ] Nest.js server + Websocket ([socket.io](https://github.com/socketio/socket.io#readme) preferred)
 - [ ] Websocket live competition implement
 
 ## Project setup
