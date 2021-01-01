@@ -47,6 +47,7 @@ const renderer = createRenderer({
   patchProp(el, key, preVal, nextVal) {
     switch (key) {
       case 'texture':
+        console.log('nextVal', nextVal);
         el.texture = Texture.from(nextVal);
         break;
       default:
