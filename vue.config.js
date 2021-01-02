@@ -11,12 +11,4 @@ module.exports = {
       contentBase: path.resolve(__dirname, './dist'),
     },
   },
-  chainWebpack: config => {
-    config.module
-      .rule('image')
-      .test(/\.(png|jpe?g|gif)$/i)
-      .use('file-loader')
-        .loader('file-loader')
-        .end()
-  }
 };
