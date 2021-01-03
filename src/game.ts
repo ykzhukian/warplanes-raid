@@ -6,8 +6,8 @@ import { Application } from 'pixi.js';
 
 // 初始化一个canvas
 const game = new Application({
-  width: 750,
-  height: 1080,
+  width: 600,
+  height: 800,
   backgroundColor: 0xffffff,
 });
 

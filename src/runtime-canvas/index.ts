@@ -11,7 +11,6 @@ import {
 const renderer = createRenderer({
   // @ts-ignore
   createElement(type) { // type：虚拟节点的类型
-    // 创建一个 矩形
     // pixijs
     // api -> 文档
     let element;
@@ -25,20 +24,6 @@ const renderer = createRenderer({
       default:
         break;
     }
-
-    if (type === 'rect') {
-      element = new Graphics();
-      element.beginFill(0xff0000);
-      element.drawRect(0, 0, 500, 500);
-      element.endFill();
-    } else if (type === 'circle') {
-      element = new Graphics();
-      element.beginFill(0xfff000, 0.7);
-      element.drawCircle(0, 0, 50);
-      element.endFill();
-    }
-
-    console.log('element', element);
     return element;
   },
   insert(el, parent) {
