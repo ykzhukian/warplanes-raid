@@ -1,27 +1,32 @@
-import { Texture } from 'pixi.js';
-import { defineComponent, h } from '@vue/runtime-core';
-import map from './assets/images/map.svg';
-import startBtn from './assets/images/start-btn.svg';
-
-// .vue -> .js
-// render -> template -> render
-// 底层的写法
+import {
+  defineComponent, h, ref, computed,
+} from '@vue/runtime-core';
+import StartPage from './views/Start';
+import GamePage from './views/Game';
 
 export default defineComponent({
+  setup() {
+    const currentPageName = ref('StartPage');
+    const currentPage = computed(() => {
+      if (currentPageName.value === 'StartPage') {
+        return StartPage;
+      }
+      return GamePage;
+    });
+
+    return {
+      currentPage,
+      currentPageName,
+    };
+  },
 
   // template
-  render() {
+  render(ctx: any) {
     // 虚拟 DOM
-    // <react x={100} y={100}></react>
     const vnode = h('Container', [
-      h('Sprite', { texture: map }),
-      h('Sprite', {
-        texture: startBtn,
-        x: 120,
-        y: 100,
-        interactive: true,
-        onClick() {
-          console.log('clicked');
+      h(ctx.currentPage, {
+        onChangePage(page: string) {
+          ctx.currentPageName = page;
         },
       }),
     ]);
