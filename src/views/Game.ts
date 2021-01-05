@@ -13,7 +13,7 @@ export default defineComponent({
     };
   },
 
-  render(ctx: any) {
+  render() {
     const vnode = h('Container', [
       h('Sprite', { texture: map }),
     ]);
