@@ -31,11 +31,14 @@ const renderer = createRenderer({
   },
   patchProp(el, key, preVal, nextVal) {
     switch (key) {
+      case 'on':
+        Object.keys(nextVal).forEach((eventName) => {
+          const callback = nextVal[eventName];
+          el.on(eventName, callback);
+        });
+        break;
       case 'texture':
         el.texture = Texture.from(nextVal);
-        break;
-      case 'onClick':
-        el.on('pointertap', nextVal);
         break;
       default:
         el[key] = nextVal;

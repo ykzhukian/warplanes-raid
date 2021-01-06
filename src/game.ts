@@ -14,4 +14,4 @@ const game = new Application({
 document.body.append(game.view);
 
 // game.stage 是一个容器
-export default () => game.stage;
+export default game.stage;

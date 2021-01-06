@@ -1,37 +1,32 @@
 import {
-  defineComponent, h, ref, computed,
+  h,
+  ref,
+  computed,
+  defineComponent,
 } from '@vue/runtime-core';
-import StartPage from './views/Start';
-import GamePage from './views/Game';
+import { getPageComponent } from './views';
+import { PAGE } from './config/pages';
 
 export default defineComponent({
   setup() {
-    const currentPageName = ref('StartPage');
-    const currentPage = computed(() => {
-      if (currentPageName.value === 'StartPage') {
-        return StartPage;
-      }
-      return GamePage;
-    });
+    const currentPageName = ref(PAGE.start);
+    const currentPage = computed(() => getPageComponent(currentPageName.value));
+
+    const handleNextPage = (nextPage: string) => {
+      currentPageName.value = nextPage;
+    };
 
     return {
       currentPage,
-      currentPageName,
+      handleNextPage,
     };
   },
 
-  // template
   render(ctx: any) {
-    // 虚拟 DOM
-    const vnode = h('Container', [
+    return h('Container', [
       h(ctx.currentPage, {
-        onChangePage(page: string) {
-          ctx.currentPageName = page;
-        },
+        onNextPage: ctx.handleNextPage,
       }),
     ]);
-
-    console.log('vnode', vnode);
-    return vnode;
   },
 });
