@@ -1,7 +1,6 @@
 import { createRenderer } from '@vue/runtime-core';
 import {
   Container,
-  Graphics,
   Sprite,
   Texture,
 } from 'pixi.js';

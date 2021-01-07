@@ -10,7 +10,10 @@ import { PAGE } from './config/pages';
 export default defineComponent({
   setup() {
     const currentPageName = ref(PAGE.start);
-    const currentPage = computed(() => getPageComponent(currentPageName.value));
+    const currentPage = computed(() => {
+      console.log('currentPageName.value', currentPageName.value);
+      return getPageComponent(currentPageName.value);
+    });
 
     const handleNextPage = (nextPage: string) => {
       currentPageName.value = nextPage;
